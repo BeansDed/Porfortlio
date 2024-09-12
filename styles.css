@@ -1,0 +1,159 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    
+}
+
+a {
+    
+    text-decoration: none;
+    color: #007BFF;
+}
+
+ul {
+    list-style: none;
+}
+
+
+.header {
+    height: 100vh;
+    background-image: url('header.gif');
+    background-repeat: no-repeat;
+    background-size: cover; /* Adjusts the GIF to cover the entire header */
+    background-position: center; /* Centers the GIF */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+
+.header .nav-list {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+}
+
+.header .nav-list li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.header .nav-list a {
+    color: white;
+    font-size: 18px;
+}
+
+.header .intro h1 {
+    font-size: 4rem;
+    margin-bottom: 10px;
+}
+
+.header .intro p {
+    font-size: 1.5rem;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* About Section */
+.about-section {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: black;
+    color:  white;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+}
+
+.about-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Projects Section */
+.projects-section {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #181C14;
+    color: white;
+}
+
+.projects-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.project-card {
+    display: inline-block;
+    width: 300px;
+    margin: 20px;
+    text-align: left;
+    
+}
+
+.project-card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.project-card h3 {
+    margin: 15px 0 10px;
+}
+
+.project-card p {
+    margin-bottom: 15px;
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: grey;
+    color: white ;
+}
+
+.contact-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.contact-section p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto 30px;
+}
+
+/* Footer Section */
+.footer {
+    padding: 20px 0;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    font-size: 0.9rem;
+}
