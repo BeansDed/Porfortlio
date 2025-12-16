@@ -6,7 +6,7 @@ import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 const socialLinks = [
   { name: "GitHub", icon: Github, href: "https://github.com/BeansDed" },
   { name: "LinkedIn", icon: Linkedin, href: "#" },
-  { name: "Twitter", icon: Twitter, href: "#" },
+  { name: "Twitter", icon: Twitter, href: "https://x.com/beans_neow" },
   { name: "Email", icon: Mail, href: "mailto:hello@example.com" },
 ];
 
