@@ -11,7 +11,7 @@ const config: Config = {
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
         serif: ["Cormorant Garamond", "serif"],
-        display: ["Cinzel", "serif"],
+        display: ["Cinzel Decorative", "Cinzel", "serif"],
         mono: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
       },
       colors: {

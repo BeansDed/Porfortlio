@@ -7,8 +7,8 @@ import { useRef } from "react";
 const socialLinks = [
   { name: "Github", icon: Github, href: "https://github.com/beansded" },
   { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com" },
-  { name: "Twitter", icon: Twitter, href: "https://twitter.com" },
-  { name: "Email", icon: Mail, href: "mailto:hello@ardre.work" },
+  { name: "Twitter", icon: Twitter, href: "https://x.com/beans_neow" },
+  { name: "Email", icon: Mail, href: "mailto:malonzoardre3@gmail.com" },
 ];
 
 export default function Footer() {
@@ -24,7 +24,8 @@ export default function Footer() {
   const xReverse = reduceMotion ? 0 : driftReverse;
 
   return (
-    <footer id="contact" ref={sectionRef} className="relative bg-background pt-24 pb-12 px-6 overflow-hidden">
+    <footer id="contact" ref={sectionRef} className="relative bg-background pt-20 sm:pt-24 pb-12 px-4 sm:px-6 overflow-hidden">
+      <div className="absolute inset-0 bg-mythic-key opacity-15 mask-vignette pointer-events-none" />
       <motion.div
         style={{ x: xDrift }}
         className="absolute -left-20 top-10 h-40 w-40 rounded-full bg-roman-gold/10 blur-2xl"
@@ -35,11 +36,11 @@ export default function Footer() {
         className="absolute right-10 bottom-12 h-52 w-52 rounded-full border border-roman-gold/15 bg-surface/50 backdrop-blur-sm"
         aria-hidden="true"
       />
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-4xl mx-auto relative z-10">
         
         {/* Main Block */}
         <motion.div 
-          className="bg-surface border border-border-subtle rounded-lg p-8 md:p-12 shadow-sm animate-roam-float text-center"
+          className="bg-surface/90 border border-roman-gold/20 rounded-lg p-6 sm:p-8 md:p-12 shadow-sm animate-roam-float text-center backdrop-blur-sm"
           initial={{ opacity: 0, x: 32 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -49,15 +50,15 @@ export default function Footer() {
             <span className="text-sm font-medium tracking-wide">[[Contact]]</span>
           </div>
 
-          <h2 className="text-3xl md:text-5xl font-light text-foreground mb-8">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-light text-foreground mb-6 sm:mb-8">
             Ready to <span className="text-accent-blue font-normal">[[collaborate]]</span>?
           </h2>
 
-          <p className="text-lg text-stone-600 mb-10 max-w-xl mx-auto">
+          <p className="text-base sm:text-lg text-stone-gray mb-8 sm:mb-10 max-w-xl mx-auto">
             Open for dialogue on networked systems, design engineering, and digital architecture.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-6">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
             {socialLinks.map((link) => {
               const Icon = link.icon;
               return (
@@ -66,7 +67,7 @@ export default function Footer() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-2 text-stone-500 hover:text-accent-blue transition-colors"
+                  className="group flex items-center gap-2 text-sm sm:text-base text-stone-gray hover:text-accent-blue transition-colors"
                 >
                   <span className="opacity-50 group-hover:opacity-100 transition-opacity">[[</span>
                   <span className="flex items-center gap-2">

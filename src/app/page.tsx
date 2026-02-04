@@ -22,9 +22,13 @@ export default function Home() {
       {/* Mythic Atmosphere */}
       <div className="pointer-events-none fixed inset-0 z-0">
         <div className="absolute inset-0 bg-mythic-veil opacity-70" />
+        <div className="absolute inset-0 bg-mythic-marble opacity-55" />
         <div className="absolute inset-0 bg-mythic-key opacity-25 mix-blend-multiply mask-vignette" />
+        <div className="absolute inset-0 bg-mythic-columns opacity-15 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-mythic-grain opacity-30" />
         <div className="absolute -top-32 left-1/2 h-[40rem] w-[40rem] -translate-x-1/2 rounded-full bg-mythic-glow opacity-40 blur-3xl" />
         <div className="absolute -bottom-40 -right-24 h-[36rem] w-[36rem] rounded-full bg-mythic-glow opacity-30 blur-3xl" />
+        <div className="absolute top-24 right-16 h-64 w-64 rounded-full bg-mythic-relief opacity-35 blur-2xl" />
       </div>
 
       <div className="relative z-10">

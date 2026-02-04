@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -15,7 +15,7 @@ body {
     radial-gradient(1200px 600px at 20% -10%, rgba(201, 162, 39, 0.14), transparent 60%),
     radial-gradient(900px 500px at 80% 10%, rgba(30, 78, 140, 0.12), transparent 60%),
     linear-gradient(180deg, #F6F0E6 0%, #F9F4EC 45%, #F6F0E6 100%);
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Cormorant Garamond', 'Times New Roman', serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -48,6 +48,36 @@ body {
       linear-gradient(90deg, transparent 24px, rgba(201, 162, 39, 0.18) 24px, rgba(201, 162, 39, 0.18) 25px, transparent 25px),
       linear-gradient(180deg, transparent 24px, rgba(201, 162, 39, 0.18) 24px, rgba(201, 162, 39, 0.18) 25px, transparent 25px);
     background-size: 48px 48px;
+  }
+
+  .bg-mythic-grain {
+    background-image:
+      radial-gradient(rgba(36, 27, 22, 0.06) 1px, transparent 1px),
+      radial-gradient(rgba(36, 27, 22, 0.04) 1px, transparent 1px);
+    background-size: 48px 48px, 36px 36px;
+    background-position: 0 0, 12px 18px;
+  }
+
+  .bg-mythic-columns {
+    background-image:
+      linear-gradient(90deg, rgba(201, 162, 39, 0.18) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201, 162, 39, 0.08) 1px, transparent 1px);
+    background-size: 80px 100%, 24px 100%;
+    background-position: 10px 0, 0 0;
+  }
+
+  .bg-mythic-marble {
+    background-image:
+      radial-gradient(900px 600px at 15% 5%, rgba(201, 162, 39, 0.12), transparent 60%),
+      radial-gradient(700px 500px at 85% 15%, rgba(30, 78, 140, 0.12), transparent 60%),
+      linear-gradient(135deg, rgba(36, 27, 22, 0.06) 0%, transparent 55%),
+      repeating-linear-gradient(120deg, rgba(201, 162, 39, 0.08) 0 1px, transparent 1px 18px);
+  }
+
+  .bg-mythic-relief {
+    background-image:
+      radial-gradient(closest-side, rgba(255, 248, 237, 0.7), transparent 70%),
+      radial-gradient(closest-side, rgba(201, 162, 39, 0.25), transparent 75%);
   }
 
   .bg-mythic-glow {

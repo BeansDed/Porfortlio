@@ -39,7 +39,7 @@ export default function Hero() {
       <div className="max-w-4xl mx-auto w-full space-y-8 z-10">
         {/* Main Block */}
         <motion.div 
-          className="bg-surface/90 border border-roman-gold/20 rounded-lg p-8 md:p-12 shadow-sm animate-roam-float hover:shadow-md transition-shadow duration-300 backdrop-blur-sm"
+          className="bg-surface/90 border border-roman-gold/20 rounded-lg p-6 sm:p-8 md:p-12 shadow-sm animate-roam-float hover:shadow-md transition-shadow duration-300 backdrop-blur-sm text-center md:text-left"
           initial={{ opacity: 0, x: -32 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
@@ -49,17 +49,17 @@ export default function Hero() {
             <span className="text-sm font-medium tracking-wide">[[Home]]</span>
           </div>
 
-          <h1 className="text-4xl md:text-6xl font-light text-foreground tracking-tight leading-tight mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-display font-light text-foreground tracking-tight leading-tight mb-6">
             Building digital <span className="text-accent-blue font-normal">[[systems]]</span> <br />
             for networked thought.
           </h1>
 
-          <p className="text-lg md:text-xl text-stone-gray leading-relaxed max-w-2xl">
+          <p className="text-base sm:text-lg md:text-xl text-stone-gray leading-relaxed max-w-2xl mx-auto md:mx-0">
             A minimalist approach to engineering and design. Interconnecting ideas, 
             components, and user experiences into a cohesive whole.
           </p>
 
-          <div className="mt-8 flex gap-4">
+          <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 items-center md:items-start justify-center md:justify-start">
             <a 
               href="#work" 
               className="inline-flex items-center text-accent-blue hover:underline decoration-1 underline-offset-4 transition-all"

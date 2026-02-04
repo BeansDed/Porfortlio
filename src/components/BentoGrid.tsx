@@ -29,6 +29,7 @@ export default function BentoGrid() {
       ref={sectionRef}
       className="relative min-h-screen px-4 sm:px-6 lg:px-12 py-16 sm:py-20 lg:py-24 bg-background overflow-hidden"
     >
+      <div className="absolute inset-0 bg-mythic-grain opacity-25 pointer-events-none" />
       <motion.div
         style={{ x: xDrift }}
         className="absolute -left-24 top-12 h-44 w-44 rounded-full bg-roman-gold/10 blur-2xl"
@@ -40,7 +41,7 @@ export default function BentoGrid() {
         aria-hidden="true"
       />
       {/* Section Header */}
-      <div className="max-w-7xl mx-auto mb-12 sm:mb-16">
+      <div className="max-w-7xl mx-auto mb-12 sm:mb-16 relative z-10">
         <motion.div 
           className="text-center"
           initial={{ opacity: 0, x: -40 }}
@@ -71,8 +72,8 @@ export default function BentoGrid() {
       </div>
 
       {/* Projects Grid */}
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8">
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-5 sm:gap-8">
           {displayedProjects.map((project, index) => (
             <motion.div
               key={project.id}

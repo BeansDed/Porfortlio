@@ -8,21 +8,22 @@ import Link from "next/link";
 export default function ProjectDetailClient({ project }: { project: Project }) {
   return (
     <main className="min-h-screen bg-background text-foreground relative overflow-x-hidden selection:bg-accent-blue/20 selection:text-accent-blue">
+      <div className="pointer-events-none absolute inset-0 bg-mythic-grain opacity-25" />
 
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 p-6 flex justify-between items-center mix-blend-difference">
+      <nav className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-4 sm:py-6 flex justify-between items-center mix-blend-difference">
         <Link 
           href="/#work"
           className="group flex items-center gap-2 text-stone-gray hover:text-roman-gold transition-colors duration-300"
         >
           <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
-          <span className="font-serif tracking-widest uppercase text-sm">Back to Gallery</span>
+          <span className="font-serif tracking-widest uppercase text-xs sm:text-sm">Back to Gallery</span>
         </Link>
-        <div className="text-xl font-display font-bold tracking-[0.2em] text-foreground">ARDRE</div>
+        <div className="text-lg sm:text-xl font-display font-bold tracking-[0.2em] text-foreground">ARDRE</div>
       </nav>
 
       {/* Hero Section */}
-      <section className="relative h-[70vh] flex items-center justify-center px-6 overflow-hidden">
+      <section className="relative h-[70vh] flex items-center justify-center px-4 sm:px-6 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background z-10" />
         
         {/* Abstract Background */}

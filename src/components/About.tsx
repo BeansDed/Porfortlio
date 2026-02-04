@@ -58,6 +58,7 @@ export default function About() {
     >
       {/* Background Decor */}
       <div className="absolute -right-16 sm:-right-24 -bottom-16 sm:-bottom-24 w-48 sm:w-64 lg:w-80 h-48 sm:h-64 lg:h-80 border border-roman-gold/5 rounded-full pointer-events-none" />
+      <div className="absolute inset-0 bg-mythic-columns opacity-10 mask-vignette pointer-events-none" />
       <motion.div
         style={{ x: xDrift }}
         className="absolute -left-20 top-24 h-40 w-40 rounded-full bg-roman-gold/10 blur-2xl"
@@ -69,8 +70,8 @@ export default function About() {
         aria-hidden="true"
       />
       
-      <div className="max-w-6xl mx-auto w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="max-w-6xl mx-auto w-full relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center">
           
           {/* Left Content */}
           <motion.div 
@@ -84,7 +85,7 @@ export default function About() {
               The Philosophy
             </span>
             
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display tracking-wider text-foreground leading-tight mb-6 sm:mb-8">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-display tracking-wider text-foreground leading-tight mb-6 sm:mb-8">
               DIGITAL<br />ALCHEMY
             </h2>
             
@@ -103,7 +104,7 @@ export default function About() {
 
           {/* Right - Stats */}
           <motion.div 
-            className="grid grid-cols-3 gap-4 sm:gap-6 lg:gap-8"
+            className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-6 lg:gap-8"
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-10%" }}
@@ -120,7 +121,7 @@ export default function About() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 + i * 0.1, duration: 0.5, ease: "easeOut" }}
-                className="p-4 sm:p-6 border border-roman-gold/10 bg-background/50"
+                className="p-3 sm:p-6 border border-roman-gold/10 bg-background/60"
               >
                 <Counter value={stat.value} label={stat.label} />
               </motion.div>
