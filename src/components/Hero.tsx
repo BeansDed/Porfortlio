@@ -1,120 +1,91 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 export default function Hero() {
+  const sectionRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+  const drift = useTransform(scrollYProgress, [0, 1], [-80, 80]);
+  const driftReverse = useTransform(scrollYProgress, [0, 1], [80, -80]);
+  const float = useTransform(scrollYProgress, [0, 1], [20, -20]);
+  const reduceMotion = useReducedMotion();
+
+  const xDrift = reduceMotion ? 0 : drift;
+  const xReverse = reduceMotion ? 0 : driftReverse;
+  const yFloat = reduceMotion ? 0 : float;
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated background gradient */}
-      <div className="absolute inset-0 bg-background">
-        <div className="absolute inset-0 grid-bg opacity-50" />
-        <motion.div
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent-purple/20 rounded-full blur-[120px]"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-teal/20 rounded-full blur-[120px]"
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1,
-          }}
-        />
-      </div>
+    <section 
+      id="hero" 
+      ref={sectionRef}
+      className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden px-4 sm:px-6 bg-background"
+    >
+      {/* Mythic Drift Ornaments */}
+      <motion.div
+        style={{ x: xDrift, y: yFloat }}
+        className="absolute -left-24 top-24 h-48 w-48 rounded-full bg-roman-gold/10 blur-2xl"
+        aria-hidden="true"
+      />
+      <motion.div
+        style={{ x: xReverse }}
+        className="absolute -right-16 bottom-24 h-56 w-56 rounded-full border border-roman-gold/20 bg-surface/40 backdrop-blur-sm"
+        aria-hidden="true"
+      />
 
-      {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-        {/* Status badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full glass-light"
+      <div className="max-w-4xl mx-auto w-full space-y-8 z-10">
+        {/* Main Block */}
+        <motion.div 
+          className="bg-surface/90 border border-roman-gold/20 rounded-lg p-8 md:p-12 shadow-sm animate-roam-float hover:shadow-md transition-shadow duration-300 backdrop-blur-sm"
+          initial={{ opacity: 0, x: -32 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <span className="w-2 h-2 bg-accent-teal rounded-full animate-pulse" />
-          <span className="text-sm text-gray-300">Available for opportunities</span>
-        </motion.div>
+          <div className="flex items-center gap-3 mb-6 text-stone-gray">
+            <div className="w-2 h-2 rounded-full bg-accent-blue" />
+            <span className="text-sm font-medium tracking-wide">[[Home]]</span>
+          </div>
 
-        {/* Main headline */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
-        >
-          Building{" "}
-          <span className="gradient-text">Digital Worlds</span>
-          <br />
-          <span className="text-gray-400">&</span>{" "}
-          <span className="gradient-text">Intelligent Systems</span>
-        </motion.h1>
+          <h1 className="text-4xl md:text-6xl font-light text-foreground tracking-tight leading-tight mb-6">
+            Building digital <span className="text-accent-blue font-normal">[[systems]]</span> <br />
+            for networked thought.
+          </h1>
 
-        {/* Sub-headline */}
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10"
-        >
-          A showcase of Full Stack Development, AI, and Interactive Media.
-        </motion.p>
+          <p className="text-lg md:text-xl text-stone-gray leading-relaxed max-w-2xl">
+            A minimalist approach to engineering and design. Interconnecting ideas, 
+            components, and user experiences into a cohesive whole.
+          </p>
 
-        {/* CTA Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-        >
-          <a
-            href="#work"
-            className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-accent-purple to-accent-teal rounded-full font-medium text-white transition-all duration-300 hover:shadow-lg hover:shadow-accent-purple/25 hover:scale-105"
-          >
-            Explore the Code
-            <motion.span
-              animate={{ x: [0, 5, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
+          <div className="mt-8 flex gap-4">
+            <a 
+              href="#work" 
+              className="inline-flex items-center text-accent-blue hover:underline decoration-1 underline-offset-4 transition-all"
             >
-              →
-            </motion.span>
-          </a>
+              <span className="opacity-50 mr-1">[[</span>
+              Explore Graph
+              <span className="opacity-50 ml-1">]]</span>
+            </a>
+            <a 
+              href="#about" 
+              className="inline-flex items-center text-stone-gray hover:text-foreground hover:underline decoration-1 underline-offset-4 transition-all"
+            >
+              <span className="opacity-50 mr-1">[[</span>
+              Read Philosophy
+              <span className="opacity-50 ml-1">]]</span>
+            </a>
+          </div>
         </motion.div>
 
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 1 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="flex flex-col items-center gap-2 text-gray-500"
-          >
-            <span className="text-xs uppercase tracking-widest">Scroll</span>
-            <ChevronDown className="w-5 h-5" />
-          </motion.div>
-        </motion.div>
+        {/* Floating Abstract Blocks */}
+        <div className="absolute top-1/4 -left-12 w-24 h-24 bg-surface border border-roman-gold/15 rounded-lg opacity-60 animate-roam-float [animation-delay:1s] hidden lg:block" />
+        <div className="absolute bottom-1/4 -right-12 w-32 h-32 bg-surface border border-roman-gold/15 rounded-lg opacity-60 animate-roam-float [animation-delay:2s] hidden lg:block" />
       </div>
-
-      {/* Decorative elements */}
-      <div className="absolute top-20 left-10 w-px h-32 bg-gradient-to-b from-transparent via-accent-purple/50 to-transparent" />
-      <div className="absolute top-40 right-20 w-px h-24 bg-gradient-to-b from-transparent via-accent-teal/50 to-transparent" />
-      <div className="absolute bottom-32 left-20 w-24 h-px bg-gradient-to-r from-transparent via-accent-purple/50 to-transparent" />
+      
+      {/* Mythic Pattern */}
+      <div className="absolute inset-0 bg-mythic-key opacity-20 mask-vignette pointer-events-none" />
     </section>
   );
 }

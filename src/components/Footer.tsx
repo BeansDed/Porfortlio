@@ -1,69 +1,94 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { Github, Linkedin, Mail, Twitter, Heart } from "lucide-react";
+import { useRef } from "react";
 
 const socialLinks = [
-  { name: "GitHub", icon: Github, href: "https://github.com/BeansDed" },
-  { name: "LinkedIn", icon: Linkedin, href: "#" },
-  { name: "Twitter", icon: Twitter, href: "https://x.com/beans_neow" },
-  { name: "Email", icon: Mail, href: "mailto:hello@example.com" },
+  { name: "Github", icon: Github, href: "https://github.com/beansded" },
+  { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com" },
+  { name: "Twitter", icon: Twitter, href: "https://twitter.com" },
+  { name: "Email", icon: Mail, href: "mailto:hello@ardre.work" },
 ];
 
 export default function Footer() {
+  const sectionRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+  const drift = useTransform(scrollYProgress, [0, 1], [-50, 50]);
+  const driftReverse = useTransform(scrollYProgress, [0, 1], [50, -50]);
+  const reduceMotion = useReducedMotion();
+  const xDrift = reduceMotion ? 0 : drift;
+  const xReverse = reduceMotion ? 0 : driftReverse;
+
   return (
-    <footer className="relative py-16 px-6 border-t border-border/50">
-      {/* Background glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-accent-teal/10 rounded-full blur-[120px] pointer-events-none" />
+    <footer id="contact" ref={sectionRef} className="relative bg-background pt-24 pb-12 px-6 overflow-hidden">
+      <motion.div
+        style={{ x: xDrift }}
+        className="absolute -left-20 top-10 h-40 w-40 rounded-full bg-roman-gold/10 blur-2xl"
+        aria-hidden="true"
+      />
+      <motion.div
+        style={{ x: xReverse }}
+        className="absolute right-10 bottom-12 h-52 w-52 rounded-full border border-roman-gold/15 bg-surface/50 backdrop-blur-sm"
+        aria-hidden="true"
+      />
+      <div className="max-w-4xl mx-auto">
+        
+        {/* Main Block */}
+        <motion.div 
+          className="bg-surface border border-border-subtle rounded-lg p-8 md:p-12 shadow-sm animate-roam-float text-center"
+          initial={{ opacity: 0, x: 32 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="flex items-center justify-center gap-2 mb-6 text-stone-400">
+            <span className="text-sm font-medium tracking-wide">[[Contact]]</span>
+          </div>
 
-      <div className="relative max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          {/* Left side - branding */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center md:text-left"
-          >
-            <h3 className="font-display text-2xl font-bold gradient-text mb-2">
-              Let&apos;s Connect
-            </h3>
-            <p className="text-gray-400 text-sm">
-              Open for collaborations and new opportunities.
-            </p>
-          </motion.div>
+          <h2 className="text-3xl md:text-5xl font-light text-foreground mb-8">
+            Ready to <span className="text-accent-blue font-normal">[[collaborate]]</span>?
+          </h2>
 
-          {/* Right side - social links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="flex items-center gap-4"
-          >
-            {socialLinks.map((social) => (
-              <motion.a
-                key={social.name}
-                href={social.href}
-                whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="p-3 rounded-full glass-light hover:bg-surface-light transition-colors group"
-                aria-label={social.name}
-              >
-                <social.icon className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
-              </motion.a>
-            ))}
-          </motion.div>
-        </div>
-
-        {/* Bottom bar */}
-        <div className="mt-12 pt-8 border-t border-border/30 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
-          <p>© {new Date().getFullYear()} Portfolio. All rights reserved.</p>
-          <p className="flex items-center gap-2">
-            Built with <span className="text-accent-purple">♥</span> using Next.js & Framer Motion
+          <p className="text-lg text-stone-600 mb-10 max-w-xl mx-auto">
+            Open for dialogue on networked systems, design engineering, and digital architecture.
           </p>
+
+          <div className="flex flex-wrap justify-center gap-6">
+            {socialLinks.map((link) => {
+              const Icon = link.icon;
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-2 text-stone-500 hover:text-accent-blue transition-colors"
+                >
+                  <span className="opacity-50 group-hover:opacity-100 transition-opacity">[[</span>
+                  <span className="flex items-center gap-2">
+                    <Icon size={20} />
+                    {link.name}
+                  </span>
+                  <span className="opacity-50 group-hover:opacity-100 transition-opacity">]]</span>
+                </a>
+              );
+            })}
+          </div>
+        </motion.div>
+
+        {/* Footer Bottom */}
+        <div className="mt-12 text-center text-xs text-stone-400 font-mono">
+          <p className="flex items-center justify-center gap-2">
+             Made with <Heart className="w-3 h-3 text-red-500" /> by ARDRE
+          </p>
+          <p className="mt-2">{"\u00A9"} {new Date().getFullYear()} ARDRE. All nodes connected.</p>
         </div>
       </div>
     </footer>
   );
 }
+

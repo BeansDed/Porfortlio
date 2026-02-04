@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Portfolio | Creative Technologist",
-  description: "Building Digital Worlds & Intelligent Systems - A showcase of Full Stack Development, AI, and Interactive Media.",
+  title: "Ardre | Digital Experience",
+  description: "A showcase of digital realms and intelligent systems.",
 };
 
 export default function RootLayout({

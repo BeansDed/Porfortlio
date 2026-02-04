@@ -19,7 +19,7 @@ export const projects: Project[] = [
     tags: ["React Native", "Node.js", "MongoDB", "E-commerce"],
     size: "large",
     gradient: "from-purple-500/20 to-pink-500/20",
-    icon: "🐾",
+    icon: "\u{1F43E}",
     link: "https://github.com/MarkKheanViari/PetPal-E-commerce-Booking-Mobile-",
   },
   {
@@ -30,7 +30,7 @@ export const projects: Project[] = [
     tags: ["AI/ML", "Blockchain", "Python", "Smart Contracts"],
     size: "large",
     gradient: "from-teal-500/20 to-cyan-500/20",
-    icon: "⛓️",
+    icon: "\u{26D3}\u{FE0F}",
     link: "https://github.com/BeansDed/QualiChain-AI",
   },
   {
@@ -41,7 +41,7 @@ export const projects: Project[] = [
     tags: ["Unity", "C#", "Game Design", "Horror"],
     size: "standard",
     gradient: "from-red-500/20 to-orange-500/20",
-    icon: "👁️",
+    icon: "\u{1F441}\u{FE0F}",
     link: "https://github.com/justinmcneal/Lurk",
   },
   {
@@ -52,7 +52,7 @@ export const projects: Project[] = [
     tags: ["React", "WebSocket", "Game Logic", "Strategy"],
     size: "standard",
     gradient: "from-violet-500/20 to-purple-500/20",
-    icon: "⚔️",
+    icon: "\u{2694}\u{FE0F}",
     link: "https://github.com/BeansDed/ArcaneConquestWebsite",
   },
   {
@@ -63,7 +63,7 @@ export const projects: Project[] = [
     tags: ["Next.js", "Database", "CMS", "API"],
     size: "standard",
     gradient: "from-blue-500/20 to-indigo-500/20",
-    icon: "📚",
+    icon: "\u{1F4DA}",
     link: "https://github.com/BeansDed/Hoyoverse-Lore",
   },
   {
@@ -74,7 +74,7 @@ export const projects: Project[] = [
     tags: ["React", "REST API", "Responsive"],
     size: "compact",
     gradient: "from-sky-500/20 to-blue-500/20",
-    icon: "🌤️",
+    icon: "\u{1F324}\u{FE0F}",
     link: "https://github.com/BeansDed/Weather-app",
   },
   {
@@ -85,7 +85,7 @@ export const projects: Project[] = [
     tags: ["JavaScript", "Algorithms", "Visualization"],
     size: "compact",
     gradient: "from-amber-500/20 to-yellow-500/20",
-    icon: "✨",
+    icon: "\u{2728}",
     link: "https://github.com/BeansDed/LUMINA_SORT",
   },
   {
@@ -96,22 +96,22 @@ export const projects: Project[] = [
     tags: ["React", "Accessibility", "UI/UX"],
     size: "compact",
     gradient: "from-emerald-500/20 to-green-500/20",
-    icon: "🏛️",
+    icon: "\u{1F3DB}\u{FE0F}",
     link: "https://github.com/chiyarrih/Publico_FrontEnd",
   },
 ];
 
 export const techStack = [
-  { name: "React", icon: "⚛️" },
-  { name: "Next.js", icon: "▲" },
-  { name: "Node.js", icon: "🟢" },
-  { name: "TypeScript", icon: "📘" },
-  { name: "Python", icon: "🐍" },
-  { name: "MongoDB", icon: "🍃" },
-  { name: "PostgreSQL", icon: "🐘" },
-  { name: "Unity", icon: "🎮" },
-  { name: "TailwindCSS", icon: "🎨" },
-  { name: "Docker", icon: "🐳" },
-  { name: "Git", icon: "📦" },
-  { name: "Figma", icon: "🎯" },
+  { name: "React", icon: "\u{269B}\u{FE0F}" },
+  { name: "Next.js", icon: "\u{25B2}" },
+  { name: "Node.js", icon: "\u{1F7E2}" },
+  { name: "TypeScript", icon: "\u{1F4D8}" },
+  { name: "Python", icon: "\u{1F40D}" },
+  { name: "MongoDB", icon: "\u{1F343}" },
+  { name: "PostgreSQL", icon: "\u{1F418}" },
+  { name: "Unity", icon: "\u{1F3AE}" },
+  { name: "TailwindCSS", icon: "\u{1F3A8}" },
+  { name: "Docker", icon: "\u{1F433}" },
+  { name: "Git", icon: "\u{1F4E6}" },
+  { name: "Figma", icon: "\u{1F3AF}" },
 ];
