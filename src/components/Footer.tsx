@@ -1,92 +1,76 @@
-"use client";
-
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { Github, Linkedin, Mail, Twitter, Heart } from "lucide-react";
-import { useRef } from "react";
+import { Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 
 const socialLinks = [
-  { name: "Github", icon: Github, href: "https://github.com/beansded" },
-  { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com" },
-  { name: "Twitter", icon: Twitter, href: "https://x.com/beans_neow" },
-  { name: "Email", icon: Mail, href: "mailto:malonzoardre3@gmail.com" },
+  { name: "GitHub", icon: Github, href: "https://github.com/BeansDed", external: true },
+  { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com", external: true },
+];
+
+const contactItems = [
+  { label: "Email", value: "malonzoardre3@gmail.com", icon: Mail, href: "mailto:malonzoardre3@gmail.com" },
+  { label: "Phone", value: "+63 916 756 2796", icon: Phone, href: "tel:+639167562796" },
+  { label: "Location", value: "Urdaneta City, Pangasinan", icon: MapPin, href: undefined },
 ];
 
 export default function Footer() {
-  const sectionRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-  const drift = useTransform(scrollYProgress, [0, 1], [-50, 50]);
-  const driftReverse = useTransform(scrollYProgress, [0, 1], [50, -50]);
-  const reduceMotion = useReducedMotion();
-  const xDrift = reduceMotion ? 0 : drift;
-  const xReverse = reduceMotion ? 0 : driftReverse;
-
   return (
-    <footer id="contact" ref={sectionRef} className="relative bg-background pt-20 sm:pt-24 pb-12 px-4 sm:px-6 overflow-hidden">
-      <div className="absolute inset-0 bg-mythic-key opacity-15 mask-vignette pointer-events-none" />
-      <motion.div
-        style={{ x: xDrift }}
-        className="absolute -left-20 top-10 h-40 w-40 rounded-full bg-roman-gold/10 blur-2xl"
-        aria-hidden="true"
-      />
-      <motion.div
-        style={{ x: xReverse }}
-        className="absolute right-10 bottom-12 h-52 w-52 rounded-full border border-roman-gold/15 bg-surface/50 backdrop-blur-sm"
-        aria-hidden="true"
-      />
-      <div className="max-w-4xl mx-auto relative z-10">
-        
-        {/* Main Block */}
-        <motion.div 
-          className="bg-surface/90 border border-roman-gold/20 rounded-lg p-6 sm:p-8 md:p-12 shadow-sm animate-roam-float text-center backdrop-blur-sm"
-          initial={{ opacity: 0, x: 32 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="flex items-center justify-center gap-2 mb-6 text-stone-400">
-            <span className="text-sm font-medium tracking-wide">[[Contact]]</span>
-          </div>
-
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-light text-foreground mb-6 sm:mb-8">
-            Ready to <span className="text-accent-blue font-normal">[[collaborate]]</span>?
+    <footer id="contact" className="bg-background pt-16 sm:pt-20 pb-10 px-4 sm:px-6 border-t border-foreground/10">
+      <div className="max-w-5xl mx-auto">
+        <div className="rounded-xl border border-foreground/10 bg-surface/90 p-6 sm:p-8 md:p-10">
+          <p className="text-xs font-semibold tracking-[0.12em] uppercase text-accent-blue mb-3">Contact</p>
+          <h2 className="text-2xl sm:text-4xl font-semibold tracking-tight text-foreground mb-4">
+            Open to internships, junior roles, and freelance projects.
           </h2>
-
-          <p className="text-base sm:text-lg text-stone-gray mb-8 sm:mb-10 max-w-xl mx-auto">
-            Open for dialogue on networked systems, design engineering, and digital architecture.
+          <p className="text-base text-stone-gray mb-8 max-w-3xl">
+            If your team is hiring a junior developer who can contribute across frontend, backend,
+            and delivery pipelines, I would be glad to connect.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-8">
+            {contactItems.map((item) => {
+              const Icon = item.icon;
+              const content = (
+                <div className="rounded-md border border-foreground/15 px-4 py-3 h-full">
+                  <p className="text-xs uppercase tracking-wide text-stone-gray mb-1">{item.label}</p>
+                  <p className="text-sm font-medium text-foreground inline-flex items-center gap-2">
+                    <Icon size={16} />
+                    {item.value}
+                  </p>
+                </div>
+              );
+
+              if (!item.href) {
+                return <div key={item.label}>{content}</div>;
+              }
+
+              return (
+                <a key={item.label} href={item.href} className="hover:text-accent-blue transition-colors">
+                  {content}
+                </a>
+              );
+            })}
+          </div>
+
+          <div className="flex flex-wrap gap-4 sm:gap-6">
             {socialLinks.map((link) => {
               const Icon = link.icon;
               return (
                 <a
                   key={link.name}
                   href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-2 text-sm sm:text-base text-stone-gray hover:text-accent-blue transition-colors"
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noopener noreferrer" : undefined}
+                  className="inline-flex items-center gap-2 rounded-md border border-foreground/15 px-4 py-2 text-sm font-medium text-stone-gray hover:text-accent-blue hover:border-accent-blue/40 transition-colors duration-200"
                 >
-                  <span className="opacity-50 group-hover:opacity-100 transition-opacity">[[</span>
-                  <span className="flex items-center gap-2">
-                    <Icon size={20} />
-                    {link.name}
-                  </span>
-                  <span className="opacity-50 group-hover:opacity-100 transition-opacity">]]</span>
+                  <Icon size={18} />
+                  {link.name}
                 </a>
               );
             })}
           </div>
-        </motion.div>
+        </div>
 
-        {/* Footer Bottom */}
-        <div className="mt-12 text-center text-xs text-stone-400 font-mono">
-          <p className="flex items-center justify-center gap-2">
-             Made with <Heart className="w-3 h-3 text-red-500" /> by ARDRE
-          </p>
-          <p className="mt-2">{"\u00A9"} {new Date().getFullYear()} ARDRE. All nodes connected.</p>
+        <div className="mt-8 text-center text-xs text-stone-400">
+          <p>{"\u00A9"} {new Date().getFullYear()} ARDRE. Portfolio built with Next.js and Tailwind CSS.</p>
         </div>
       </div>
     </footer>

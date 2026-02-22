@@ -4,114 +4,89 @@ export interface Project {
   description: string;
   highlight: string;
   tags: string[];
-  size: "large" | "standard" | "compact";
-  gradient: string;
-  icon: string;
+  details: string[];
   link?: string;
 }
 
 export const projects: Project[] = [
   {
-    id: "petpal",
-    title: "PetPal",
-    description: "E-commerce & Booking Mobile App for pet services with full-stack implementation.",
-    highlight: "Full Stack Mobile Solution",
-    tags: ["React Native", "Node.js", "MongoDB", "E-commerce"],
-    size: "large",
-    gradient: "from-purple-500/20 to-pink-500/20",
-    icon: "\u{1F43E}",
-    link: "https://github.com/MarkKheanViari/PetPal-E-commerce-Booking-Mobile-",
+    id: "bimby",
+    title: "Bimby (Scam Detector AI)",
+    description:
+      "AI-powered scam detection chat system that analyzes text and screenshots to detect fraud signals in real time.",
+    highlight: "AI-assisted fraud detection",
+    tags: ["Python", "Django", "TypeScript", "LLM", "Computer Vision"],
+    details: [
+      "Built a chat-driven scam detection workflow for text and screenshot analysis.",
+      "Designed a neuro-semantic pipeline with classifier, feature extractor, and LLM-based explanation output.",
+      "Generated risk scores from 0 to 100 and highlighted red-flag phrases such as urgency and reward-over-effort.",
+    ],
   },
   {
-    id: "qualichain",
-    title: "QualiChain-AI",
-    description: "AI-powered blockchain solution for credential verification and quality assurance.",
-    highlight: "Next-Gen Tech",
-    tags: ["AI/ML", "Blockchain", "Python", "Smart Contracts"],
-    size: "large",
-    gradient: "from-teal-500/20 to-cyan-500/20",
-    icon: "\u{26D3}\u{FE0F}",
-    link: "https://github.com/BeansDed/QualiChain-AI",
-  },
-  {
-    id: "lurk",
-    title: "Lurk",
-    description: "Atmospheric horror game with immersive sound design and psychological elements.",
-    highlight: "Atmospheric Design & Game Dev",
-    tags: ["Unity", "C#", "Game Design", "Horror"],
-    size: "standard",
-    gradient: "from-red-500/20 to-orange-500/20",
-    icon: "\u{1F441}\u{FE0F}",
-    link: "https://github.com/justinmcneal/Lurk",
-  },
-  {
-    id: "arcane-conquest",
-    title: "ArcaneConquest",
-    description: "Strategic web-based game with real-time interactions and competitive gameplay.",
-    highlight: "Strategy & Web Interaction",
-    tags: ["React", "WebSocket", "Game Logic", "Strategy"],
-    size: "standard",
-    gradient: "from-violet-500/20 to-purple-500/20",
-    icon: "\u{2694}\u{FE0F}",
-    link: "https://github.com/BeansDed/ArcaneConquestWebsite",
-  },
-  {
-    id: "hoyoverse-lore",
-    title: "Hoyoverse-Lore",
-    description: "Comprehensive wiki and database for Hoyoverse game universes.",
-    highlight: "Wiki/Database Architecture",
-    tags: ["Next.js", "Database", "CMS", "API"],
-    size: "standard",
-    gradient: "from-blue-500/20 to-indigo-500/20",
-    icon: "\u{1F4DA}",
-    link: "https://github.com/BeansDed/Hoyoverse-Lore",
-  },
-  {
-    id: "weather-app",
-    title: "Weather-App",
-    description: "Real-time weather application with clean UI and API integration.",
-    highlight: "API Integration",
-    tags: ["React", "REST API", "Responsive"],
-    size: "compact",
-    gradient: "from-sky-500/20 to-blue-500/20",
-    icon: "\u{1F324}\u{FE0F}",
-    link: "https://github.com/BeansDed/Weather-app",
-  },
-  {
-    id: "lumina-sort",
-    title: "LUMINA_SORT",
-    description: "Visual sorting algorithm demonstration with interactive animations.",
-    highlight: "Sorting Algorithms & Visualization",
-    tags: ["JavaScript", "Algorithms", "Visualization"],
-    size: "compact",
-    gradient: "from-amber-500/20 to-yellow-500/20",
-    icon: "\u{2728}",
-    link: "https://github.com/BeansDed/LUMINA_SORT",
+    id: "skin-sense",
+    title: "Skin Sense (AI Diagnostic Skin Platform)",
+    description:
+      "Computer vision platform for analyzing skin-related biological data with mobile capture and secure records.",
+    highlight: "Computer vision and health workflow",
+    tags: ["Python", "Hono.js", "Flutter", "Blockchain", "Computer Vision"],
+    details: [
+      "Architected a diagnostic workflow for skin-related classification tasks.",
+      "Implemented blockchain-backed immutable record storage for diagnostic output.",
+      "Built a cross-platform mobile flow for image capture, upload, and result processing.",
+    ],
   },
   {
     id: "publico",
-    title: "Publico_FrontEnd",
-    description: "Modern public service interface with accessible design principles.",
-    highlight: "Public Service UI",
-    tags: ["React", "Accessibility", "UI/UX"],
-    size: "compact",
-    gradient: "from-emerald-500/20 to-green-500/20",
-    icon: "\u{1F3DB}\u{FE0F}",
+    title: "Publico (Transparency Dashboard)",
+    description:
+      "Web-based transparency dashboard that supports accountability workflows through data visibility and issue tracking.",
+    highlight: "Data visibility and governance tooling",
+    tags: ["TypeScript", "JavaScript", "Dashboard", "Data Visualization"],
+    details: [
+      "Developed a transparency dashboard for oversight and accountability workflows.",
+      "Implemented data visualization modules for operational reporting.",
+      "Added issue tracking features to improve monitoring and follow-through.",
+    ],
     link: "https://github.com/chiyarrih/Publico_FrontEnd",
   },
-];
-
-export const techStack = [
-  { name: "React", icon: "\u{269B}\u{FE0F}" },
-  { name: "Next.js", icon: "\u{25B2}" },
-  { name: "Node.js", icon: "\u{1F7E2}" },
-  { name: "TypeScript", icon: "\u{1F4D8}" },
-  { name: "Python", icon: "\u{1F40D}" },
-  { name: "MongoDB", icon: "\u{1F343}" },
-  { name: "PostgreSQL", icon: "\u{1F418}" },
-  { name: "Unity", icon: "\u{1F3AE}" },
-  { name: "TailwindCSS", icon: "\u{1F3A8}" },
-  { name: "Docker", icon: "\u{1F433}" },
-  { name: "Git", icon: "\u{1F4E6}" },
-  { name: "Figma", icon: "\u{1F3AF}" },
+  {
+    id: "reddit-to-shorts",
+    title: "Reddit-to-Shorts (Automation Pipeline)",
+    description:
+      "Automated media pipeline that converts long-form Reddit stories into short-form video content.",
+    highlight: "Automation and media processing",
+    tags: ["Python", "JavaScript", "FFmpeg", "Automation"],
+    details: [
+      "Built an end-to-end pipeline for transforming text stories into short videos.",
+      "Implemented subtitle generation, story segmentation, and rendering orchestration.",
+      "Optimized processing workflow to improve output speed and readability.",
+    ],
+  },
+  {
+    id: "hoyoverse-lore",
+    title: "Hoyoverse Lore (Irminsul Lore Scholar)",
+    description:
+      "AI-powered lore exploration platform that synthesizes fragmented story content into guided answers.",
+    highlight: "AI-powered knowledge interface",
+    tags: ["TypeScript", "JavaScript", "CSS", "AI Integration"],
+    details: [
+      "Built a lore aggregation system that consolidates scattered narrative sources.",
+      "Designed a user-facing interface for guided question answering.",
+      "Improved information retrieval compared with traditional wiki-style browsing.",
+    ],
+    link: "https://github.com/BeansDed/Hoyoverse-Lore",
+  },
+  {
+    id: "identity-resolution-engine",
+    title: "High-Scale Company Identity Resolution Engine",
+    description:
+      "TypeScript-based service for high-scale entity matching and company record consolidation.",
+    highlight: "High-scale backend service",
+    tags: ["TypeScript", "Docker", "Prometheus", "HTTP APIs", "Observability"],
+    details: [
+      "Developed entity matching logic for company identity consolidation.",
+      "Exposed HTTP APIs for integration with external systems.",
+      "Added Prometheus metrics and Dockerized deployment for operational monitoring.",
+    ],
+  },
 ];

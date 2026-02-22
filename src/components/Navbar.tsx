@@ -1,21 +1,19 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { name: "Philosophy", href: "#about" },
-  { name: "Works", href: "#work" },
-  { name: "Epistula", href: "#contact" }, // Latin for "Letter" or Contact
+  { name: "Summary", href: "#summary" },
+  { name: "Skills", href: "#skills" },
+  { name: "Experience", href: "#experience" },
+  { name: "Projects", href: "#work" },
+  { name: "Education", href: "#education" },
+  { name: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { scrollY } = useScroll();
-  const backdropBlur = useTransform(scrollY, [0, 50], ["blur(0px)", "blur(10px)"]);
-  const backgroundColor = useTransform(scrollY, [0, 50], ["rgba(246, 240, 230, 0)", "rgba(246, 240, 230, 0.85)"]);
-  const borderColor = useTransform(scrollY, [0, 50], ["rgba(201, 162, 39, 0)", "rgba(201, 162, 39, 0.18)"]);
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
@@ -32,74 +30,73 @@ export default function Navbar() {
 
   return (
     <>
-      <motion.header
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b"
-        style={{
-          backgroundColor,
-          backdropFilter: backdropBlur,
-          WebkitBackdropFilter: backdropBlur,
-          borderColor,
-        }}
-      >
+      <header className="fixed top-0 left-0 right-0 z-50 border-b border-roman-gold/15 bg-background/90 backdrop-blur-md">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 lg:h-24 flex items-center justify-between">
-          {/* Logo */}
           <a 
-            href="#" 
+            href="#hero" 
             onClick={(e) => scrollToSection(e, "#hero")}
-            className="text-2xl sm:text-3xl font-display font-bold tracking-[0.2em] text-foreground hover:text-roman-gold transition-colors duration-300"
+            className="text-lg sm:text-xl font-semibold tracking-wide text-foreground hover:text-accent-blue transition-colors duration-200"
           >
             ARDRE
           </a>
 
-          {/* Desktop nav */}
-          <ul className="hidden md:flex items-center gap-8 lg:gap-12">
+          <ul className="hidden md:flex items-center gap-4 lg:gap-6 xl:gap-8">
             {navLinks.map((link) => (
               <li key={link.name}>
                 <a
                   href={link.href}
                   onClick={(e) => scrollToSection(e, link.href)}
-                  className="text-xs lg:text-sm font-serif tracking-widest uppercase text-stone-gray hover:text-roman-red transition-colors duration-300 relative group"
+                  className="text-xs lg:text-sm font-medium text-stone-gray hover:text-foreground transition-colors duration-200 relative group"
                 >
                   {link.name}
-                  <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-roman-red transition-all duration-300 group-hover:w-full" />
+                  <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-accent-blue transition-all duration-200 group-hover:w-full" />
                 </a>
               </li>
             ))}
           </ul>
 
-          {/* Mobile menu button */}
+          <a
+            href="mailto:malonzoardre3@gmail.com"
+            className="hidden lg:inline-flex items-center rounded-md border border-accent-blue/30 px-4 py-2 text-sm font-medium text-accent-blue hover:bg-accent-blue hover:text-white transition-colors duration-200"
+          >
+            Hire Me
+          </a>
+
           <button
             className="md:hidden p-2 text-foreground hover:text-roman-gold transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </nav>
-      </motion.header>
+      </header>
 
-      {/* Mobile menu */}
       {isMobileMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl pt-24 px-6 md:hidden overflow-y-auto"
-        >
-          <div className="absolute inset-0 bg-mythic-key opacity-20 mask-vignette pointer-events-none" />
+        <div className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl pt-24 px-6 md:hidden overflow-y-auto">
           <ul className="relative flex flex-col gap-6 items-center">
             {navLinks.map((link) => (
               <li key={link.name}>
                 <a
                   href={link.href}
                   onClick={(e) => scrollToSection(e, link.href)}
-                  className="text-2xl sm:text-3xl font-display tracking-widest text-foreground hover:text-roman-gold transition-colors"
+                  className="text-2xl font-semibold text-foreground hover:text-accent-blue transition-colors"
                 >
                   {link.name}
                 </a>
               </li>
             ))}
+            <li>
+              <a
+                href="mailto:malonzoardre3@gmail.com"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="inline-flex items-center rounded-md border border-accent-blue/30 px-4 py-2 text-sm font-medium text-accent-blue hover:bg-accent-blue hover:text-white transition-colors duration-200"
+              >
+                Hire Me
+              </a>
+            </li>
           </ul>
-        </motion.div>
+        </div>
       )}
     </>
   );

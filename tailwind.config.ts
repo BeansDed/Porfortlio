@@ -10,8 +10,8 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
-        serif: ["Cormorant Garamond", "serif"],
-        display: ["Cinzel Decorative", "Cinzel", "serif"],
+        serif: ["Georgia", "serif"],
+        display: ["Inter", "system-ui", "sans-serif"],
         mono: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
       },
       colors: {
@@ -24,23 +24,6 @@ const config: Config = {
         "roman-gold": "#C9A227",
         "roman-red": "#7A1E23",
         "stone-gray": "#776B5D",
-      },
-      backgroundImage: {
-        // Removed marble pattern
-      },
-      animation: {
-        "roam-float": "roamFloat 6s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate",
-        "pulse-slow": "pulseSlow 8s ease-in-out infinite",
-      },
-      keyframes: {
-        roamFloat: {
-          "0%": { transform: "translateX(-15px)" },
-          "100%": { transform: "translateX(15px)" },
-        },
-        pulseSlow: {
-          "0%, 100%": { opacity: "0.6" },
-          "50%": { opacity: "1" },
-        },
       },
     },
   },
