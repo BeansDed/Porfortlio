@@ -2,9 +2,18 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Ardre N. Malonzo | Full-Stack Developer Portfolio",
+  metadataBase: new URL("https://beansded.github.io/Porfortlio"),
+  title: {
+    default: "Ardre Malonzo — Full-Stack Developer",
+    template: "%s — Ardre Malonzo",
+  },
   description:
-    "Portfolio of Ardre N. Malonzo, a junior full-stack developer building scalable web, mobile, and AI-assisted systems.",
+    "Full-stack developer building web, mobile, AI-assisted products, and backend services with Python and TypeScript.",
+  openGraph: {
+    title: "Ardre Malonzo — Full-Stack Developer",
+    description: "Selected work across AI, automation, civic technology, and data systems.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -14,9 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased">
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

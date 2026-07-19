@@ -1,8 +1,8 @@
 export interface Project {
   id: string;
   title: string;
+  category: string;
   description: string;
-  highlight: string;
   tags: string[];
   details: string[];
   link?: string;
@@ -11,82 +11,82 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: "bimby",
-    title: "Bimby (Scam Detector AI)",
+    title: "Bimby — AI Scam Detector",
+    category: "AI / Full-stack",
     description:
-      "AI-powered scam detection chat system that analyzes text and screenshots to detect fraud signals in real time.",
-    highlight: "AI-assisted fraud detection",
+      "A chat-based fraud analysis system that reviews text and screenshots, scores risk, and explains the warning signs behind a result.",
     tags: ["Python", "Django", "TypeScript", "LLM", "Computer Vision"],
     details: [
-      "Built a chat-driven scam detection workflow for text and screenshot analysis.",
-      "Designed a neuro-semantic pipeline with classifier, feature extractor, and LLM-based explanation output.",
-      "Generated risk scores from 0 to 100 and highlighted red-flag phrases such as urgency and reward-over-effort.",
+      "Built a single analysis flow for both pasted messages and uploaded screenshots.",
+      "Combined classification, feature extraction, and LLM-generated explanations in one pipeline.",
+      "Returned a 0–100 risk score and surfaced urgency, reward, and manipulation signals for the user.",
     ],
   },
   {
     id: "skin-sense",
-    title: "Skin Sense (AI Diagnostic Skin Platform)",
+    title: "Skin Sense — AI Skin Platform",
+    category: "Mobile / Computer vision",
     description:
-      "Computer vision platform for analyzing skin-related biological data with mobile capture and secure records.",
-    highlight: "Computer vision and health workflow",
+      "A cross-platform diagnostic workflow for capturing skin images, processing classification results, and retaining tamper-resistant records.",
     tags: ["Python", "Hono.js", "Flutter", "Blockchain", "Computer Vision"],
     details: [
-      "Architected a diagnostic workflow for skin-related classification tasks.",
-      "Implemented blockchain-backed immutable record storage for diagnostic output.",
-      "Built a cross-platform mobile flow for image capture, upload, and result processing.",
+      "Designed the end-to-end workflow from mobile image capture to diagnostic output.",
+      "Implemented immutable record storage for generated diagnostic results.",
+      "Connected the Flutter capture experience to upload and processing services.",
     ],
   },
   {
     id: "publico",
-    title: "Publico (Transparency Dashboard)",
+    title: "Publico — Transparency Dashboard",
+    category: "Civic tech / Frontend",
     description:
-      "Web-based transparency dashboard that supports accountability workflows through data visibility and issue tracking.",
-    highlight: "Data visibility and governance tooling",
+      "A public-accountability dashboard that turns operational records into visible reporting, issue tracking, and follow-through workflows.",
     tags: ["TypeScript", "JavaScript", "Dashboard", "Data Visualization"],
     details: [
-      "Developed a transparency dashboard for oversight and accountability workflows.",
-      "Implemented data visualization modules for operational reporting.",
-      "Added issue tracking features to improve monitoring and follow-through.",
+      "Developed the dashboard interface for oversight and accountability workflows.",
+      "Built data-visualization modules for clearer operational reporting.",
+      "Added issue tracking to support monitoring from discovery through resolution.",
     ],
     link: "https://github.com/chiyarrih/Publico_FrontEnd",
   },
   {
     id: "reddit-to-shorts",
-    title: "Reddit-to-Shorts (Automation Pipeline)",
+    title: "Reddit-to-Shorts Pipeline",
+    category: "Automation / Media",
     description:
-      "Automated media pipeline that converts long-form Reddit stories into short-form video content.",
-    highlight: "Automation and media processing",
+      "An automated media pipeline that converts long-form Reddit stories into segmented, subtitled, short-form video content.",
     tags: ["Python", "JavaScript", "FFmpeg", "Automation"],
     details: [
-      "Built an end-to-end pipeline for transforming text stories into short videos.",
-      "Implemented subtitle generation, story segmentation, and rendering orchestration.",
-      "Optimized processing workflow to improve output speed and readability.",
+      "Built the orchestration flow that transforms source text into rendered video.",
+      "Implemented story segmentation and timed subtitle generation.",
+      "Refined the processing sequence for faster output and more readable results.",
     ],
   },
   {
     id: "hoyoverse-lore",
-    title: "Hoyoverse Lore (Irminsul Lore Scholar)",
+    title: "Irminsul Lore Scholar",
+    category: "AI / Knowledge interface",
     description:
-      "AI-powered lore exploration platform that synthesizes fragmented story content into guided answers.",
-    highlight: "AI-powered knowledge interface",
+      "An AI-assisted lore explorer that consolidates fragmented narrative sources and gives users a guided path to relevant answers.",
     tags: ["TypeScript", "JavaScript", "CSS", "AI Integration"],
     details: [
-      "Built a lore aggregation system that consolidates scattered narrative sources.",
-      "Designed a user-facing interface for guided question answering.",
-      "Improved information retrieval compared with traditional wiki-style browsing.",
+      "Built a lore aggregation layer for scattered narrative sources.",
+      "Designed a focused question-and-answer interface for guided exploration.",
+      "Created a faster discovery path than browsing multiple wiki pages manually.",
     ],
     link: "https://github.com/BeansDed/Hoyoverse-Lore",
   },
   {
     id: "identity-resolution-engine",
-    title: "High-Scale Company Identity Resolution Engine",
+    title: "Company Identity Resolution Engine",
+    category: "Backend / Data systems",
     description:
-      "TypeScript-based service for high-scale entity matching and company record consolidation.",
-    highlight: "High-scale backend service",
+      "A TypeScript service for matching company identities at scale, consolidating duplicate records, and exposing the result through HTTP APIs.",
     tags: ["TypeScript", "Docker", "Prometheus", "HTTP APIs", "Observability"],
     details: [
-      "Developed entity matching logic for company identity consolidation.",
-      "Exposed HTTP APIs for integration with external systems.",
-      "Added Prometheus metrics and Dockerized deployment for operational monitoring.",
+      "Developed entity-matching logic for consolidating company records.",
+      "Exposed HTTP endpoints so external systems could use the resolution service.",
+      "Added Prometheus metrics and a Dockerized deployment for operational visibility.",
     ],
   },
 ];

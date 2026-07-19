@@ -1,20 +1,17 @@
 export default function Education() {
   return (
-    <section id="education" className="px-4 sm:px-6 py-16 sm:py-20 bg-surface/60 border-y border-foreground/5">
-      <div className="max-w-6xl mx-auto">
-        <p className="text-xs font-semibold tracking-[0.12em] uppercase text-accent-blue mb-3">Education</p>
-        <h2 className="text-2xl sm:text-4xl font-semibold tracking-tight text-foreground mb-8">
-          Bachelor of Science in Information Technology
-        </h2>
-
-        <article className="rounded-xl border border-foreground/10 bg-background/80 p-6 sm:p-8">
-          <p className="text-lg font-semibold text-foreground">PHINMA University of Dagupan</p>
-          <p className="mt-2 text-sm sm:text-base text-stone-gray">
-            Major in System Development
-          </p>
-          <p className="mt-4 inline-flex rounded-full border border-accent-blue/25 bg-accent-blue/5 px-3 py-1 text-xs font-semibold tracking-wide text-accent-blue">
-            Expected Graduation: June 2027
-          </p>
+    <section id="education" className="section-shell border-t border-border py-20 sm:py-24">
+      <div className="grid gap-8 lg:grid-cols-[1fr_2fr] lg:items-center">
+        <div>
+          <p className="eyebrow">Education</p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground">Still learning. Already building.</h2>
+        </div>
+        <article className="grid gap-6 rounded-3xl border border-border bg-surface p-6 sm:grid-cols-[1fr_auto] sm:items-end sm:p-8">
+          <div>
+            <p className="text-lg font-semibold text-foreground">BS Information Technology</p>
+            <p className="mt-2 text-sm text-muted">System Development · PHINMA University of Dagupan</p>
+          </div>
+          <p className="font-mono text-xs uppercase tracking-[0.16em] text-accent">Expected June 2027</p>
         </article>
       </div>
     </section>

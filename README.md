@@ -1,61 +1,40 @@
-# Creative Technologist Portfolio
+# Ardre Malonzo — Developer Portfolio
 
-A high-impact, unique personal portfolio website showcasing Full Stack apps, AI integrations, and Game Development projects.
+A recruiter-focused portfolio for Ardre N. Malonzo, a full-stack developer working across web, mobile, AI-assisted products, automation, and backend systems.
 
-## Features
+## What is included
 
-- 🎨 **Futuristic Utility Design** - Dark mode with glassmorphism and neon accents
-- 🏗️ **Bento Grid Layout** - Trendy project showcase with varied card sizes
-- ✨ **Smooth Animations** - Framer Motion powered entrance and hover effects
-- 📱 **Fully Responsive** - Optimized for all screen sizes
-- 🚀 **Next.js 14** - App Router for optimal performance
+- Fast-scanning home page with selected work first
+- Six static project case-study routes
+- Experience, capabilities, education, and direct contact details
+- Responsive, keyboard-accessible navigation
+- Reduced-motion support and visible focus states
+- Static export configured for GitHub Pages
 
-## Tech Stack
+## Local development
 
-- **Framework:** Next.js 14 (App Router)
-- **Styling:** Tailwind CSS
-- **Animation:** Framer Motion
-- **Icons:** Lucide React
-- **Fonts:** Inter & Space Grotesk
-
-## Getting Started
-
-1. Install dependencies:
 ```bash
 npm install
-```
-
-2. Run the development server:
-```bash
 npm run dev
 ```
 
-3. Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:3000](http://localhost:3000).
 
-## Project Structure
+## Quality checks
 
-```
-src/
-├── app/
-│   ├── globals.css    # Global styles & Tailwind
-│   ├── layout.tsx     # Root layout
-│   └── page.tsx       # Main page
-├── components/
-│   ├── Hero.tsx       # Hero section
-│   ├── BentoGrid.tsx  # Projects grid
-│   ├── TechStack.tsx  # Tech marquee
-│   ├── Navbar.tsx     # Navigation
-│   └── Footer.tsx     # Footer
-├── data/
-│   └── projects.ts    # Project data
-└── lib/
-    └── utils.ts       # Utility functions
+```bash
+npm test
+npm run lint
+npm run typecheck
+npm run build
 ```
 
-## Customization
+The production export is written to `out/`.
 
-Edit `src/data/projects.ts` to update the projects and tech stack displayed.
+## Content
 
-## License
+Project summaries and case-study details live in `src/data/projects.ts`. The site intentionally uses no CMS, analytics, service worker, or animation runtime.
 
-MIT
+## Deployment
+
+Pushes to `main` run `.github/workflows/deploy.yml`, build the static export, and publish it with GitHub Pages.
