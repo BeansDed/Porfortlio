@@ -91,6 +91,17 @@ test("the visual system includes an original graphic-JRPG rebel treatment", () =
   assert.match(styles, /--red:\s*#e7192d/);
 });
 
+test("the rebel treatment uses a lower-strain comfort palette", () => {
+  const page = read("src/app/page.tsx");
+  const styles = read("src/app/globals.css");
+
+  assert.match(page, /data-visual-comfort="soft"/);
+  assert.match(styles, /--charcoal:\s*#1b1a1d/);
+  assert.match(styles, /--warm-white:\s*#f3efe7/);
+  assert.match(styles, /--muted-red:\s*#c83d4b/);
+  assert.match(styles, /\.eye-comfort-layer/);
+});
+
 test("dead runtime and deployment files are removed", () => {
   const gitignore = read(".gitignore");
   const pkg = JSON.parse(read("package.json"));

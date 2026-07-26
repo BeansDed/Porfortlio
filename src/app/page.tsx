@@ -9,7 +9,8 @@ import ScrollProgress from "@/components/ScrollProgress";
 
 export default function Home() {
   return (
-    <main className="site-main" data-ui-style="rebel">
+    <main className="site-main" data-ui-style="rebel" data-visual-comfort="soft">
+      <div className="eye-comfort-layer" aria-hidden="true" />
       <ScrollProgress />
       <Navbar />
       <Hero />
