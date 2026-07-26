@@ -2,35 +2,29 @@ import { ArrowUpRight, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import { Project } from "@/data/projects";
 
+const symbols = ["◎", "◒", "↗", "▶", "✦", "⌘"];
+
 export default function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
-    <article className="group relative flex min-h-[25rem] flex-col bg-surface p-6 transition-colors hover:bg-surface-light sm:p-9">
-      <div className="flex items-start justify-between gap-4">
-        <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-accent">{project.category}</p>
-        <span className="font-mono text-xs text-muted">0{index + 1}</span>
+    <article className={`project-card project-card-${index + 1}`}>
+      <div className="project-card-top"><p>{project.category}</p><span>0{index + 1} / 06</span></div>
+      <div className="project-visual" aria-hidden="true">
+        <span className="visual-index">0{index + 1}</span>
+        <span className="visual-symbol">{symbols[index]}</span>
+        <div className="visual-grid" />
       </div>
-
-      <div className="my-auto py-10">
-        <h3 className="max-w-md text-3xl font-semibold leading-tight tracking-[-0.035em] text-foreground sm:text-4xl">
-          {project.title}
-        </h3>
-        <p className="mt-5 max-w-lg text-sm leading-7 text-muted sm:text-base">{project.description}</p>
-      </div>
-
-      <div>
-        <ul aria-label="Technologies" className="mb-6 flex flex-wrap gap-2">
-          {project.tags.slice(0, 4).map((tag) => (
-            <li key={tag} className="rounded-full border border-border px-2.5 py-1 font-mono text-[10px] uppercase tracking-wide text-muted">
-              {tag}
-            </li>
-          ))}
+      <div className="project-copy">
+        <h3>{project.title}</h3>
+        <p>{project.description}</p>
+        <ul aria-label="Technologies">
+          {project.tags.slice(0, 4).map((tag) => <li key={tag}>{tag}</li>)}
         </ul>
-        <div className="flex items-center justify-between border-t border-border pt-5">
-          <Link className="focus-ring inline-flex items-center gap-2 rounded-sm text-sm font-semibold text-foreground transition group-hover:text-accent" href={`/projects/${project.id}`}>
-            Read case study <ArrowUpRight aria-hidden="true" size={16} />
+        <div className="project-links">
+          <Link className="focus-ring" href={`/projects/${project.id}`}>
+            Open case study <ArrowUpRight aria-hidden="true" size={17} />
           </Link>
           {project.link && (
-            <a className="focus-ring rounded-full border border-border p-2.5 text-muted transition hover:border-accent hover:text-accent" href={project.link} target="_blank" rel="noreferrer" aria-label={`Open ${project.title} repository`}>
+            <a className="focus-ring project-external" href={project.link} target="_blank" rel="noreferrer" aria-label={`Open ${project.title} repository`}>
               <ExternalLink aria-hidden="true" size={15} />
             </a>
           )}

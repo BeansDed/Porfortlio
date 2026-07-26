@@ -8,10 +8,10 @@ export const metadata: Metadata = {
     template: "%s — Ardre Malonzo",
   },
   description:
-    "Full-stack developer building web, mobile, AI-assisted products, and backend services with Python and TypeScript.",
+    "Ardre Malonzo is a full-stack developer turning complex ideas into sharp, useful digital products.",
   openGraph: {
     title: "Ardre Malonzo — Full-Stack Developer",
-    description: "Selected work across AI, automation, civic technology, and data systems.",
+    description: "A kinetic portfolio of AI, automation, civic technology, and data-system work.",
     type: "website",
   },
 };

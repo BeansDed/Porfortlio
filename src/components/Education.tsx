@@ -1,19 +1,19 @@
 export default function Education() {
   return (
-    <section id="education" className="section-shell border-t border-border py-20 sm:py-24">
-      <div className="grid gap-8 lg:grid-cols-[1fr_2fr] lg:items-center">
-        <div>
-          <p className="eyebrow">Education</p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground">Still learning. Already building.</h2>
-        </div>
-        <article className="grid gap-6 rounded-3xl border border-border bg-surface p-6 sm:grid-cols-[1fr_auto] sm:items-end sm:p-8">
-          <div>
-            <p className="text-lg font-semibold text-foreground">BS Information Technology</p>
-            <p className="mt-2 text-sm text-muted">System Development · PHINMA University of Dagupan</p>
-          </div>
-          <p className="font-mono text-xs uppercase tracking-[0.16em] text-accent">Expected June 2027</p>
-        </article>
+    <section id="education" className="education">
+      <div className="education-note">
+        <p className="eyebrow">04 / Next level loading</p>
+        <h2>STILL LEARNING.<br /><em>ALREADY BUILDING.</em></h2>
       </div>
+      <article>
+        <div className="education-year">2027</div>
+        <div>
+          <p>BS Information Technology</p>
+          <h3>System Development</h3>
+          <span>PHINMA University of Dagupan · Expected June 2027</span>
+        </div>
+        <div className="education-status">IN<br />PROGRESS</div>
+      </article>
     </section>
   );
 }

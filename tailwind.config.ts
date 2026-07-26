@@ -5,14 +5,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#0B0D0C",
-        surface: "#121512",
-        "surface-light": "#171B17",
-        foreground: "#F2F0E8",
-        muted: "#A4A79D",
-        border: "#293029",
-        accent: "#C7FF4C",
-        "accent-soft": "#D5FF78",
+        background: "#F2EDE3",
+        surface: "#FFFCF5",
+        "surface-light": "#E6E0D5",
+        foreground: "#111111",
+        muted: "#5D5A55",
+        border: "#111111",
+        accent: "#3657FF",
+        "accent-soft": "#FF6B4A",
       },
       fontFamily: {
         sans: ["Arial", "Helvetica", "sans-serif"],

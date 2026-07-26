@@ -9,48 +9,30 @@ const navLinks = [
 
 export default function Navbar() {
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/85 backdrop-blur-xl">
-      <nav
-        aria-label="Primary navigation"
-        className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8"
-      >
-        <a href="#hero" className="focus-ring group inline-flex items-center gap-3 rounded-sm">
-          <span className="grid h-8 w-8 place-items-center rounded-full bg-accent text-xs font-black text-background">
-            AM
-          </span>
-          <span className="hidden text-sm font-semibold tracking-tight text-foreground sm:block">Ardre Malonzo</span>
+    <header className="site-header">
+      <nav aria-label="Primary navigation" className="site-nav">
+        <a href="#hero" className="brand-mark focus-ring">
+          <span className="brand-dot">AM</span>
+          <span className="brand-copy">ARDRE® / 26</span>
         </a>
-
-        <ul className="hidden items-center gap-7 md:flex">
+        <ul className="desktop-nav">
           {navLinks.map((link) => (
             <li key={link.name}>
-              <a className="focus-ring nav-link rounded-sm" href={link.href}>
-                {link.name}
-              </a>
+              <a className="focus-ring nav-link" href={link.href}>{link.name}<span>↗</span></a>
             </li>
           ))}
         </ul>
-
-        <a
-          href="mailto:malonzoardre3@gmail.com?subject=Portfolio%20inquiry"
-          className="focus-ring hidden items-center gap-2 rounded-full border border-border px-4 py-2 text-xs font-semibold text-foreground transition hover:border-accent hover:text-accent md:inline-flex"
-        >
-          Let&apos;s talk <ArrowUpRight aria-hidden="true" size={14} />
+        <a href="mailto:malonzoardre3@gmail.com?subject=Portfolio%20inquiry" className="nav-cta focus-ring">
+          Start a project <ArrowUpRight aria-hidden="true" size={15} />
         </a>
-
-        <details className="group relative md:hidden">
-          <summary className="focus-ring grid h-10 w-10 cursor-pointer list-none place-items-center rounded-full border border-border text-foreground marker:content-none">
+        <details className="mobile-menu">
+          <summary className="focus-ring mobile-menu-button">
             <span className="sr-only">Open navigation</span>
-            <Menu aria-hidden="true" size={18} />
+            <Menu aria-hidden="true" size={19} />
           </summary>
-          <nav
-            aria-label="Mobile navigation"
-            className="absolute right-0 top-12 w-56 rounded-2xl border border-border bg-surface p-2 shadow-2xl shadow-black/40"
-          >
+          <nav aria-label="Mobile navigation" className="mobile-menu-panel">
             {navLinks.map((link) => (
-              <a key={link.name} className="focus-ring block rounded-xl px-4 py-3 text-sm font-medium text-muted hover:bg-surface-light hover:text-foreground" href={link.href}>
-                {link.name}
-              </a>
+              <a key={link.name} className="focus-ring" href={link.href}>{link.name}<span>↗</span></a>
             ))}
           </nav>
         </details>

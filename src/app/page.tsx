@@ -5,10 +5,12 @@ import Experience from "@/components/Experience";
 import BentoGrid from "@/components/BentoGrid";
 import Education from "@/components/Education";
 import Footer from "@/components/Footer";
+import ScrollProgress from "@/components/ScrollProgress";
 
 export default function Home() {
   return (
-    <main className="overflow-x-hidden bg-background text-foreground">
+    <main className="site-main" data-ui-style="rebel">
+      <ScrollProgress />
       <Navbar />
       <Hero />
       <BentoGrid />

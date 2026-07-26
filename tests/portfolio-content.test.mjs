@@ -61,6 +61,36 @@ test("project detail routes provide metadata and static params", () => {
   assert.match(projectPage, /dynamicParams\s*=\s*false/);
 });
 
+test("featured work exposes a scroll-driven horizontal project rail", () => {
+  const work = read("src/components/BentoGrid.tsx");
+
+  assert.match(work, /data-horizontal-rail/);
+  assert.match(work, /aria-label="Selected project case studies"/);
+  assert.match(work, /--rail-progress/);
+  assert.match(work, /requestAnimationFrame/);
+});
+
+test("the kinetic system tracks page progress and respects reduced motion", () => {
+  const page = read("src/app/page.tsx");
+  const styles = read("src/app/globals.css");
+
+  assert.match(page, /<ScrollProgress/);
+  assert.match(styles, /--page-progress/);
+  assert.match(styles, /prefers-reduced-motion:\s*reduce/);
+});
+
+test("the visual system includes an original graphic-JRPG rebel treatment", () => {
+  const hero = read("src/components/Hero.tsx");
+  const page = read("src/app/page.tsx");
+  const styles = read("src/app/globals.css");
+
+  assert.match(page, /data-ui-style="rebel"/);
+  assert.match(hero, /hero-callout/);
+  assert.match(styles, /halftone/);
+  assert.match(styles, /clip-path:\s*polygon/);
+  assert.match(styles, /--red:\s*#e7192d/);
+});
+
 test("dead runtime and deployment files are removed", () => {
   const gitignore = read(".gitignore");
   const pkg = JSON.parse(read("package.json"));

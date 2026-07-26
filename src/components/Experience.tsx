@@ -9,32 +9,26 @@ const responsibilities = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="section-shell border-t border-border py-24 sm:py-32">
-      <div className="section-heading">
-        <div>
-          <p className="eyebrow">Experience</p>
-          <h2 className="section-title">Hands-on delivery.</h2>
-        </div>
-        <p className="section-intro">Independent work that spans scoping, implementation, integration, and deployment—not just isolated UI tasks.</p>
+    <section id="experience" className="experience">
+      <div className="experience-title">
+        <p className="eyebrow">02 / Social stats</p>
+        <h2>I DON&apos;T JUST<br />MAKE IT <span>PRETTY.</span></h2>
+        <p className="experience-deck">I make it ship.</p>
       </div>
-
-      <article className="mt-14 grid gap-10 rounded-3xl border border-border bg-surface p-6 sm:p-10 lg:grid-cols-[15rem_1fr] lg:gap-16">
-        <div>
-          <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-accent">2024—present</p>
-          <h3 className="mt-4 text-2xl font-semibold tracking-tight text-foreground">Freelance Full-stack Developer</h3>
-          <p className="mt-2 text-sm text-muted">Remote · International clients</p>
+      <article className="experience-card">
+        <div className="experience-card-head">
+          <div><p>2024—NOW / REMOTE</p><h3>Freelance<br />Full-stack Developer</h3></div>
+          <span className="experience-stamp">REAL<br />WORLD<br />XP</span>
         </div>
-        <div>
-          <ul className="divide-y divide-border">
+        <div className="experience-card-body">
+          <p className="experience-lead">Independent work from first messy brief to a working product in someone&apos;s hands.</p>
+          <ul>
             {responsibilities.map((item, index) => (
-              <li key={item} className="grid grid-cols-[2rem_1fr] gap-3 py-4 first:pt-0 last:pb-0">
-                <span className="font-mono text-xs text-accent">0{index + 1}</span>
-                <span className="text-sm leading-6 text-muted sm:text-base sm:leading-7">{item}</span>
-              </li>
+              <li key={item}><span>0{index + 1}</span><p>{item}</p></li>
             ))}
           </ul>
-          <a className="focus-ring mt-7 inline-flex items-center gap-2 rounded-sm text-sm font-semibold text-foreground hover:text-accent" href="mailto:malonzoardre3@gmail.com?subject=Work%20opportunity">
-            Ask about my experience <ArrowUpRight aria-hidden="true" size={15} />
+          <a className="focus-ring text-link experience-link" href="mailto:malonzoardre3@gmail.com?subject=Work%20opportunity">
+            Ask me about the details <ArrowUpRight aria-hidden="true" size={16} />
           </a>
         </div>
       </article>
