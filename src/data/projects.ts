@@ -23,17 +23,18 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: "skin-sense",
-    title: "Skin Sense — AI Skin Platform",
-    category: "Mobile / Computer vision",
+    id: "lumina-sort",
+    title: "LUMINA_SORT — Pixel Sorting Engine",
+    category: "Image processing / Backend",
     description:
-      "A cross-platform diagnostic workflow for capturing skin images, processing classification results, and retaining tamper-resistant records.",
-    tags: ["Python", "Hono.js", "Flutter", "Blockchain", "Computer Vision"],
+      "A deterministic image-processing engine that transforms photographs into glitch-style visuals by sorting pixel intervals using brightness and color data.",
+    tags: ["Python", "Django", "NumPy", "Pillow", "Image Processing"],
     details: [
-      "Designed the end-to-end workflow from mobile image capture to diagnostic output.",
-      "Implemented immutable record storage for generated diagnostic results.",
-      "Connected the Flutter capture experience to upload and processing services.",
+      "Implemented deterministic pixel sorting using luminosity, hue, saturation, and RGB-based sort keys.",
+      "Added threshold masking so specific tonal ranges can be targeted instead of processing the entire image.",
+      "Built the workflow as a Django application with reusable processing recipes and export-oriented image handling.",
     ],
+    link: "https://github.com/BeansDed/LUMINA_SORT",
   },
   {
     id: "publico",
@@ -88,5 +89,6 @@ export const projects: Project[] = [
       "Exposed HTTP endpoints so external systems could use the resolution service.",
       "Added Prometheus metrics and a Dockerized deployment for operational visibility.",
     ],
+    link: "https://github.com/BeansDed/High-Scale-Company-Identity-Resolution-Engine",
   },
 ];
